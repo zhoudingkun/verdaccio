@@ -10,10 +10,13 @@
 1. npm set registry http://192.168.2.101:4873
 2. yarn add [对应的包名]    
 3. 下载外网包可以再切换为 npm set registry https://registry.npmjs.org/
+    使用淘宝镜像的同学可以切换为 <br />
+    npm install -g cnpm --registry=https://registry.npmjs.taobao.org/
+
 
 
 =========================================================================
-
+=================================雅间=====================================
 
 
 
@@ -29,8 +32,16 @@
     yarn：yarn global add verdaccio
     
 2.启动服务
-    verdaccio >> verdaccio.log 2>&1 &     后台启动并写入日志
-    verdaccio --listen 4000 --config ./config.yaml    指定配置启动（安装完verdaccio会自动出现config.yaml，记得相对路径要保持正确）
+    第一种启动方式：verdaccio >> verdaccio.log 2>&1 &     后台启动并写入日志
+        verdaccio --listen 4000 --config ./config.yaml    指定配置启动（安装完verdaccio会自动出现config.yaml，记得相对路径要保持正确）
+    第二种启动方式：verdaccio
+
+### 使用pm2启动verdaccio，保证该进程一直处于打开状态
+1. 安装pm2      npm install -g pm2 --unsafe-perm
+2. 使用pm2启动verdaccio   pm2 start verdaccio
+3. 查看pm2 守护下的进程verdaccio的实时日志   pm2 show verdaccio 
+
+
 
 ### 添加用户/注册登录
 
