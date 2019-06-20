@@ -1,4 +1,4 @@
-# 私有包服务verdaccion的搭建
+# 私有包服务verdaccion的搭建与踩坑
 
 ### 背景
 1. 公司内部使用
@@ -48,9 +48,18 @@
     npm adduser --registry  http://192.168.2.101:4873，
     按照提示输入自己 name、email、password
 
+## 上传规范：
+1. 执行时可以先在根目录下 npm init --scope==wsf,
+    相当于npm初始化时添加了一个作用域，<br />
+    package name使用@wsf + / + 组件名，例如 @wsf/test <br />
+    description需要简要描述组件的功能，例如 页面轮播封装 <br />
+    entry point:(入口文件)默认 <br />
+    author:(作者)方便到时联系咨询 <br />
+2. 编写md文件，便于其他人的使用
+
 ### 上传私有包
     npm publish --registry http://192.168.2.101:4873
-    ps：这一步需要在自己想要上传的包的主目录下执行，同时对于有内部安装依赖的包 例如react包，我们需要将yarn/npm install以后的包再上传，而不是直接把githunb上的包拉下来去上传，这是因为直接拉下来的源文件并没有解析去执行postinstall，直接上传会报错，没有内部依赖的可以直接源文件上传的。执行时可以先在根目录下 npm init --scope==wsf,相当于npm初始化时添加了一个作用域
+    ps：这一步需要在自己想要上传的包的主目录下执行，同时对于有内部安装依赖的包 例如react包，我们需要将yarn/npm install以后的包再上传，而不是直接把githunb上的包拉下来去上传，这是因为直接拉下来的源文件并没有解析去执行postinstall，直接上传会报错，没有内部依赖的可以直接源文件上传的。
 
 ### 本地配置注册地址
     npm config list -l 查看默认配置
