@@ -8,7 +8,7 @@
 ## 对于不需要发布，只用下载的用户，只需执行以下操作（下文可以不用看了，有上传需要的请楼下雅间坐）
 内部私有仓库地址为 http://192.168.2.101:4873
 1. npm set registry http://192.168.2.101:4873
-2. yarn add [对应的包名]    
+2. yarn add [对应的包名]    例如：yarn add @wsf/test,在对应页面 import '@wsf/test';
 3. 下载外网包可以再切换为 npm set registry https://registry.npmjs.org/
     使用淘宝镜像的同学可以切换为 <br />
     npm install -g cnpm --registry=https://registry.npmjs.taobao.org/
