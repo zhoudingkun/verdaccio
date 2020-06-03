@@ -8,13 +8,13 @@
 ## 快速操作指南（下文可以不用看了，有想详细了解verdaccio的请楼下看）
 内部私有仓库地址为 http://static-repo.wanshifu.com:8007
 
-1,先把npm地址指向私有仓库
- npm set registry http://static-repo.wanshifu.com:8007
-2, npm install [对应的包名]    例如：npm install @wsf/test,在对应页面 import '@wsf/test';
-当所下载的包在私有仓库找不到时，就会自动在外网里找
-3,上传包到私有仓库
-    在登录账号后，在根目录下，即上传
-npm publish --registry http://static-repo.wanshifu.com:8007
+1,先把npm地址指向私有仓库  
+ npm set registry http://static-repo.wanshifu.com:8007  
+2, npm install [对应的包名]    例如：npm install @wsf/test,在对应页面 import '@wsf/test';  
+当所下载的包在私有仓库找不到时，就会自动在外网里找  
+3,上传包到私有仓库  
+    在登录账号后，在根目录下，即上传  
+npm publish --registry http://static-repo.wanshifu.com:8007  
 
 
 
