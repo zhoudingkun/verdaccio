@@ -5,18 +5,23 @@
 2. 组件代码通过类似 npm 的命令行的方式进行复用
 3. 下载速度更快
 
-## 对于不需要发布，只用下载的用户，只需执行以下操作（下文可以不用看了，有上传需要的请楼下雅间坐）
-内部私有仓库地址为 http://192.168.1.181:4873
-1. npm set registry http://192.168.1.181:4873
-2. yarn add [对应的包名]    例如：yarn add @wsf/test,在对应页面 import '@wsf/test';
-3. 下载外网包可以再切换为 npm set registry https://registry.npmjs.org/
-    使用淘宝镜像的同学可以切换为 <br />
-    npm install -g cnpm --registry=https://registry.npmjs.taobao.org/
+## 快速操作指南（下文可以不用看了，有想详细了解verdaccio的请楼下看）
+内部私有仓库地址为 http://static-repo.wanshifu.com:8007
+
+1,先把npm地址指向私有仓库
+ npm set registry http://static-repo.wanshifu.com:8007
+2, npm install [对应的包名]    例如：npm install @wsf/test,在对应页面 import '@wsf/test';
+当所下载的包在私有仓库找不到时，就会自动在外网里找
+3,上传包到私有仓库
+    在登录账号后，在根目录下，即上传
+npm publish --registry http://static-repo.wanshifu.com:8007
+
+
 
 
 
 =========================================================================
-=================================雅间=====================================
+=================================楼下=====================================
 
 
 
@@ -45,7 +50,7 @@
 
 ### 添加用户/注册登录
 
-    npm adduser --registry  http://192.168.1.181:4873，
+    npm adduser --registry  http://static-repo.wanshifu.com:8007，
     按照提示输入自己 name、email、password
 
 ## 上传规范：
@@ -58,7 +63,7 @@
 2. 编写md文件，便于其他人的使用
 
 ### 上传私有包
-    npm publish --registry http://192.168.1.181:4873
+    npm publish --registry http://static-repo.wanshifu.com:8007
     ps：这一步需要在自己想要上传的包的主目录下执行，同时对于有内部安装依赖的包 
     例如react包，我们需要将yarn/npm install以后的包再上传，
     而不是直接把githunb上的包拉下来去上传,
@@ -68,7 +73,7 @@
     npm config list -l 查看默认配置
     
 #### 将默认地址 https://registry.npmjs.org/ 改成私有地址
-    npm set registry http://192.168.1.181:4873
+    npm set registry http://static-repo.wanshifu.com:8007
 
     如果您使用HTTPS，请添加适当的CA信息
     “null”表示从操作系统获取CA列表）
